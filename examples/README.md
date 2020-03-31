@@ -1,3 +1,5 @@
+Lenscapture for Raspberry is an example of use of the work of hzeller (https://github.com/hzeller/rpi-rgb-led-matrix) and its RGB Matrix of Led framework. This program will allow you to display continously on your led panel, a single portion (or the entire) Raspberry real screen.
+
 Running capture
 ---------------
 Let's start by running via the command line flags,
