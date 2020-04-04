@@ -1,17 +1,29 @@
-Running capture
----------------
-Let's start by running via the command line flags,
-you can choose the display type you have (16x32 or 32x32), and how many you
-have chained and paralleled. For detailed description of these flags see the
-(../README.md#changing-parameters-via-command-line-flags).
+Direct capture sur votre écran RGB Matrix leds
+----------------------------------------------
+Après avoir fait mon écran grace à HZeller, je cherchais un moyen de faire une copie d'écran permanente de ma RaspBerry 3 vers mes Leds RGB Matrix. Je suis tombé sur raspi2png , le beau travail de AndrewFromMelbourne.
+Mon prog LensCapture est une synthèse des deux prog, il vous permettra de définir une zone carrée (xa,ya,xb,yb) dont le contenu sera copié en live sur la matrice leds.
+Le processus peut être réglé PRESQUE en live. Pressez CTRL+C pour entrer une commande.
+ - q pour quitter
+ - + pour augmenter le zoom global
+ - - pour diminue le zoom
+ - 8 / 2 zone capture vers le haut / bas
+ - 4 / 6 zone capture vers gauche / droite
+ - w / h zone capture plus large / haute
+Enter et le processus de capture en live reprend.
 
-```
+Limitations :
+-----------
+ - capture live ou pas, le nombre de leds ne permet pas souvent de voir les détails, sauf très gros écrans. Il faut donc cibler une toute petite zone de capture.
+ - attention au ralentissement de la cpu due aus taches en parallèles.
+
+Usage
+-----
+Les paramètres relatifs au circuit des matrices de Leds sont ceux du projet de HZeller d'origine.
+
 $ make
 $ sudo ./lenscapture
-usage: ./lenscapture <options> -D <demo-nr> [optional parameter]
+usage: ./lenscapture [optional parameter]
 Options:
-        -D <demo-nr>              : Always needs to be set
-        -t <seconds>              : Run for these number of seconds, then exit.
         --led-gpio-mapping=<name> : Name of GPIO mapping used. Default "regular"
         --led-rows=<rows>         : Panel rows. Typically 8, 16, 32 or 64. (Default: 32).
         --led-cols=<cols>         : Panel columns. Typically 32 or 64. (Default: 32).
